@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Predictor</title>
+</head>
+<body>
+    <h1>Laptop Price Predictor</h1>
+    
+    <form action="/predict" method="post">
+        <label for="brand">Brand:</label>
+        <select name="brand" id="brand">
+            {% for brand in brand_values %}
+                <option value="{{ brand }}">{{ brand }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="ram">RAM Size:</label>
+        <select name="ram" id="ram">
+            {% for ram in ram_values %}
+                <option value="{{ ram }}">{{ ram }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="processor_speed">Processor Speed:</label>
+        <input type="number" name="processor_speed" step="0.01" required><br>
+
+        <label for="storage">Storage Capacity (GB):</label>
+        <input type="number" name="storage" required><br>
+
+        <label for="screen">Screen Size:</label>
+        <input type="number" name="screen" step="0.01" required><br>
+
+        <label for="weight">Weight (kg):</label>
+        <input type="number" name="weight" step="0.01" required><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if price is defined %}
+        <h2>Predicted Price: ${{ price }}</h2>
+    {% endif %}
+</body>
+</html>
