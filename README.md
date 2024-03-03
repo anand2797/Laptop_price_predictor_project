@@ -1,1 +1,1 @@
-# Retail_customer_churn_project
+# Laptop_Price_Predictor_project
